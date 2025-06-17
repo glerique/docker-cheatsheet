@@ -125,6 +125,23 @@ docker image prune                          # Supprimer les images orphelines
 docker image prune -a                       # Supprimer toutes les images inutilisées
 ```
 
+### 🏷️ Système de tags
+```bash
+# Structure : REPOSITORY:TAG
+nginx:latest                                # Tag par défaut
+nginx:1.21                                 # Version spécifique
+nginx:1.21-alpine                          # Version + variante
+
+# Créer des tags personnalisés
+docker tag nginx:latest mon-nginx:v1.0     # Créer un nouveau tag
+docker tag IMAGE_ID mon-app:production     # Tag à partir d'un ID
+
+# Conventions de nommage
+registry.com/user/app:version              # Registry privé
+user/app:tag                               # Docker Hub personnel
+app:tag                                    # Local seulement
+```
+
 ## 🛠️ Commandes utiles supplémentaires
 
 ### Nettoyage système
