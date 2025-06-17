@@ -50,3 +50,11 @@ docker logs --tail 50 CONTAINER_ID          # Afficher les 50 dernières lignes
 docker logs --since 1h CONTAINER_ID         # Logs depuis 1 heure
 docker logs -t CONTAINER_ID                 # Avec timestamps
 ```
+
+#### `docker exec` - Exécuter des commandes dans un conteneur actif
+```bash
+docker exec -it CONTAINER_ID bash           # Ouvrir un shell interactif
+docker exec CONTAINER_ID ls -la             # Exécuter une commande simple
+docker exec -u root CONTAINER_ID bash       # Exécuter en tant que root
+docker exec -w /app CONTAINER_ID pwd        # Définir le répertoire de travail
+```
