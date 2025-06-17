@@ -98,3 +98,13 @@ Image = Base Layer + Layer 1 + Layer 2 + ... + Layer N
                    packages   files
 ```
 
+### Télécharger des images depuis Docker Hub
+```bash
+docker pull IMAGE_NAME                       # Télécharger la dernière version (latest)
+docker pull IMAGE_NAME:TAG                   # Télécharger une version spécifique
+docker pull nginx:1.21-alpine              # Exemple avec tag spécifique
+docker pull --all-tags nginx               # Télécharger tous les tags disponibles
+
+# Rechercher des images
+docker search nginx                         # Rechercher des images nginx
+```
