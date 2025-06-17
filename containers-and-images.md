@@ -17,26 +17,26 @@ Created → Running → Stopped → Removed
 docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 
 # Exemples pratiques
-docker run -d nginx                           # Démarrer en arrière-plan
-docker run -it ubuntu bash                   # Mode interactif avec terminal
-docker run --name mon-nginx nginx            # Nommer le conteneur
-docker run --rm alpine echo "Hello"          # Suppression automatique après arrêt
+docker run -d nginx                         # Démarrer en arrière-plan
+docker run -it ubuntu bash                  # Mode interactif avec terminal
+docker run --name mon-nginx nginx           # Nommer le conteneur
+docker run --rm alpine echo "Hello"         # Suppression automatique après arrêt
 docker run -d -p 8080:80 nginx              # Mapping de port
 docker run -e ENV_VAR=value alpine          # Variable d'environnement
 ```
 
 #### `docker start/stop` - Contrôler les conteneurs existants
 ```bash
-docker start CONTAINER_ID                    # Démarrer un conteneur arrêté
-docker start mon-conteneur                   # Démarrer par nom
-docker stop CONTAINER_ID                     # Arrêter proprement (SIGTERM puis SIGKILL)
+docker start CONTAINER_ID                   # Démarrer un conteneur arrêté
+docker start mon-conteneur                  # Démarrer par nom
+docker stop CONTAINER_ID                    # Arrêter proprement (SIGTERM puis SIGKILL)
 docker stop $(docker ps -q)                 # Arrêter tous les conteneurs actifs
 docker restart CONTAINER_ID                 # Redémarrer
 ```
 
 #### `docker ps` - Lister les conteneurs
 ```bash
-docker ps                                    # Conteneurs en cours d'exécution
+docker ps                                   # Conteneurs en cours d'exécution
 docker ps -a                                # Tous les conteneurs (actifs + arrêtés)
 docker ps -q                                # Afficher seulement les IDs
 docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"  # Format personnalisé
@@ -44,7 +44,7 @@ docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"  # Format personn
 
 #### `docker logs` - Consulter les logs
 ```bash
-docker logs CONTAINER_ID                     # Afficher tous les logs
+docker logs CONTAINER_ID                    # Afficher tous les logs
 docker logs -f CONTAINER_ID                 # Suivre les logs en temps réel (tail -f)
 docker logs --tail 50 CONTAINER_ID          # Afficher les 50 dernières lignes
 docker logs --since 1h CONTAINER_ID         # Logs depuis 1 heure
@@ -62,10 +62,10 @@ docker exec -w /app CONTAINER_ID pwd        # Définir le répertoire de travail
 ### Mapping des ports
 ```bash
 # Syntaxe : -p HOST_PORT:CONTAINER_PORT
-docker run -p 8080:80 nginx                 # Port 8080 de l'hôte → port 80 du conteneur
+docker run -p 8080:80 nginx                # Port 8080 de l'hôte → port 80 du conteneur
 docker run -p 127.0.0.1:8080:80 nginx      # Lier à une IP spécifique
 docker run -p 8080-8090:80 nginx           # Range de ports
-docker run -P nginx                         # Mapping automatique des ports exposés
+docker run -P nginx                        # Mapping automatique des ports exposés
 
 # Vérifier les mappings
 docker port CONTAINER_ID
@@ -100,13 +100,13 @@ Image = Base Layer + Layer 1 + Layer 2 + ... + Layer N
 
 ### Télécharger des images depuis Docker Hub
 ```bash
-docker pull IMAGE_NAME                       # Télécharger la dernière version (latest)
-docker pull IMAGE_NAME:TAG                   # Télécharger une version spécifique
+docker pull IMAGE_NAME                     # Télécharger la dernière version (latest)
+docker pull IMAGE_NAME:TAG                 # Télécharger une version spécifique
 docker pull nginx:1.21-alpine              # Exemple avec tag spécifique
 docker pull --all-tags nginx               # Télécharger tous les tags disponibles
 
 # Rechercher des images
-docker search nginx                         # Rechercher des images nginx
+docker search nginx                        # Rechercher des images nginx
 ```
 
 ### Lister et supprimer des images
@@ -114,13 +114,13 @@ docker search nginx                         # Rechercher des images nginx
 # Lister les images
 docker images                               # Toutes les images locales
 docker images nginx                         # Images nginx uniquement
-docker images --filter "dangling=true"     # Images orphelines
+docker images --filter "dangling=true"      # Images orphelines
 docker images --format "table {{.Repository}}\t{{.Tag}}\t{{.Size}}"
 
 # Supprimer des images
 docker rmi IMAGE_ID                         # Supprimer une image
 docker rmi nginx:latest                     # Supprimer par nom:tag
-docker rmi $(docker images -q)             # Supprimer toutes les images
+docker rmi $(docker images -q)              # Supprimer toutes les images
 docker image prune                          # Supprimer les images orphelines
 docker image prune -a                       # Supprimer toutes les images inutilisées
 ```
@@ -128,7 +128,7 @@ docker image prune -a                       # Supprimer toutes les images inutil
 ### 🏷️ Système de tags
 ```bash
 # Structure : REPOSITORY:TAG
-nginx:latest                                # Tag par défaut
+nginx:latest                               # Tag par défaut
 nginx:1.21                                 # Version spécifique
 nginx:1.21-alpine                          # Version + variante
 
