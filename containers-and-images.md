@@ -108,3 +108,20 @@ docker pull --all-tags nginx               # Télécharger tous les tags disponi
 # Rechercher des images
 docker search nginx                         # Rechercher des images nginx
 ```
+
+### Lister et supprimer des images
+```bash
+# Lister les images
+docker images                               # Toutes les images locales
+docker images nginx                         # Images nginx uniquement
+docker images --filter "dangling=true"     # Images orphelines
+docker images --format "table {{.Repository}}\t{{.Tag}}\t{{.Size}}"
+
+# Supprimer des images
+docker rmi IMAGE_ID                         # Supprimer une image
+docker rmi nginx:latest                     # Supprimer par nom:tag
+docker rmi $(docker images -q)             # Supprimer toutes les images
+docker image prune                          # Supprimer les images orphelines
+docker image prune -a                       # Supprimer toutes les images inutilisées
+```
+
