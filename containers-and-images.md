@@ -33,3 +33,11 @@ docker stop CONTAINER_ID                     # Arrêter proprement (SIGTERM puis
 docker stop $(docker ps -q)                 # Arrêter tous les conteneurs actifs
 docker restart CONTAINER_ID                 # Redémarrer
 ```
+
+#### `docker ps` - Lister les conteneurs
+```bash
+docker ps                                    # Conteneurs en cours d'exécution
+docker ps -a                                # Tous les conteneurs (actifs + arrêtés)
+docker ps -q                                # Afficher seulement les IDs
+docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"  # Format personnalisé
+```
