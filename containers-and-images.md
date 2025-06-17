@@ -87,3 +87,14 @@ docker run --env-file .env app
 # DB_PORT=3306
 # DEBUG=true
 ```
+
+## 🐳 Gestion des Images Docker
+
+### Structure des images (Layers)
+```
+Image = Base Layer + Layer 1 + Layer 2 + ... + Layer N
+        |           |         |         |     |
+        Ubuntu      Install   Copy      CMD   Final Layer
+                   packages   files
+```
+
