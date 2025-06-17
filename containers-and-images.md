@@ -41,3 +41,12 @@ docker ps -a                                # Tous les conteneurs (actifs + arr�
 docker ps -q                                # Afficher seulement les IDs
 docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"  # Format personnalisé
 ```
+
+#### `docker logs` - Consulter les logs
+```bash
+docker logs CONTAINER_ID                     # Afficher tous les logs
+docker logs -f CONTAINER_ID                 # Suivre les logs en temps réel (tail -f)
+docker logs --tail 50 CONTAINER_ID          # Afficher les 50 dernières lignes
+docker logs --since 1h CONTAINER_ID         # Logs depuis 1 heure
+docker logs -t CONTAINER_ID                 # Avec timestamps
+```
