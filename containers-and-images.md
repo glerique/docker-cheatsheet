@@ -58,3 +58,16 @@ docker exec CONTAINER_ID ls -la             # Exécuter une commande simple
 docker exec -u root CONTAINER_ID bash       # Exécuter en tant que root
 docker exec -w /app CONTAINER_ID pwd        # Définir le répertoire de travail
 ```
+
+### 🔌 Mapping des ports
+```bash
+# Syntaxe : -p HOST_PORT:CONTAINER_PORT
+docker run -p 8080:80 nginx                 # Port 8080 de l'hôte → port 80 du conteneur
+docker run -p 127.0.0.1:8080:80 nginx      # Lier à une IP spécifique
+docker run -p 8080-8090:80 nginx           # Range de ports
+docker run -P nginx                         # Mapping automatique des ports exposés
+
+# Vérifier les mappings
+docker port CONTAINER_ID
+```
+
