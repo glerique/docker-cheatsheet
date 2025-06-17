@@ -125,3 +125,22 @@ docker image prune                          # Supprimer les images orphelines
 docker image prune -a                       # Supprimer toutes les images inutilisées
 ```
 
+## 🛠️ Commandes utiles supplémentaires
+
+### Nettoyage système
+```bash
+docker system df                            # Utilisation d'espace disque
+docker system prune                         # Nettoyer les ressources inutilisées
+docker system prune -a                      # Nettoyage agressif (tout supprimer)
+docker container prune                      # Supprimer les conteneurs arrêtés
+docker volume prune                         # Supprimer les volumes inutilisés
+docker network prune                        # Supprimer les réseaux inutilisés
+```
+
+### Informations système
+```bash
+docker info                                 # Informations système Docker
+docker version                              # Version de Docker
+docker stats                                # Statistiques des conteneurs en temps réel
+docker inspect CONTAINER_ID                 # Détails complets d'un conteneur
+```
