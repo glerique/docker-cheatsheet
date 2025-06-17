@@ -59,7 +59,7 @@ docker exec -u root CONTAINER_ID bash       # Exécuter en tant que root
 docker exec -w /app CONTAINER_ID pwd        # Définir le répertoire de travail
 ```
 
-### 🔌 Mapping des ports
+### Mapping des ports
 ```bash
 # Syntaxe : -p HOST_PORT:CONTAINER_PORT
 docker run -p 8080:80 nginx                 # Port 8080 de l'hôte → port 80 du conteneur
@@ -71,3 +71,19 @@ docker run -P nginx                         # Mapping automatique des ports expo
 docker port CONTAINER_ID
 ```
 
+### 🌍 Variables d'environnement
+```bash
+# Définir une variable
+docker run -e DATABASE_URL=mysql://... app
+
+# Définir plusieurs variables
+docker run -e DB_HOST=localhost -e DB_PORT=3306 app
+
+# Utiliser un fichier d'environnement
+docker run --env-file .env app
+
+# Exemple de fichier .env
+# DB_HOST=localhost
+# DB_PORT=3306
+# DEBUG=true
+```
